@@ -108,6 +108,28 @@ components:
               value: !terraform.output tgw/hub transit_gateway_id
 ```
 
+### Common Use Cases
+
+1. **Transit Gateway Routing**: Configure routes to direct traffic through Transit Gateways for inter-VPC communication
+2. **Environment Connectivity**: Set up routes between different environments (dev, staging, prod)
+3. **Shared Services Access**: Enable access to shared services in transit or core accounts
+
+## Best Practices
+
+1. **Route Organization**: Split routes into logical components (e.g., by environment or purpose) to:
+   - Improve maintainability
+   - Reduce deployment time
+   - Minimize blast radius of changes
+
+2. **Naming Convention**: Use clear naming for route components, for example:
+   ```
+   vpc/routes/private/transit  # Routes to transit network
+   vpc/routes/private/dev      # Routes to dev environment
+   vpc/routes/private/prod     # Routes to prod environment
+   ```
+
+3. **Documentation**: Always document the purpose of route configurations in component metadata or comments
+
 <!-- prettier-ignore-start -->
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -115,13 +137,13 @@ components:
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.1 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.1, < 6.0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.1 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.1, < 6.0.0 |
 
 ## Modules
 
