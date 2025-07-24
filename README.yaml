@@ -98,8 +98,10 @@ usage: |-
                 value: !terraform.output tgw/hub transit_gateway_id
   ```
 
-include:
-  - "docs/terraform.md"
+  <!-- prettier-ignore-start -->
+  <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+  <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+  <!-- prettier-ignore-end -->
 
 tags:
   - terraform
