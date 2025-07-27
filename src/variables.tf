@@ -27,8 +27,8 @@ variable "routes" {
 
   validation {
     condition = alltrue([
-      for route in var.routes : contains(["transit_gateway_id", "nat_gateway_id"], route.target.type)
+      for route in var.routes : contains(["transit_gateway_id", "nat_gateway_id", "vpc_peering_connection_id", "network_interface_id"], route.target.type)
     ])
-    error_message = "Target type must be transit_gateway_id or nat_gateway_id"
+    error_message = "Target type must be transit_gateway_id, nat_gateway_id, vpc_peering_connection_id or network_interface_id"
   }
 }
