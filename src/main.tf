@@ -15,6 +15,8 @@ resource "aws_route" "this" {
   destination_cidr_block = each.value.destination_cidr_block
 
   # Exactly one of the following options should be given
-  transit_gateway_id = each.value.target.type == "transit_gateway_id" ? each.value.target.value : null
-  nat_gateway_id     = each.value.target.type == "nat_gateway_id" ? each.value.target.value : null
+  transit_gateway_id        = each.value.target.type == "transit_gateway_id" ? each.value.target.value : null
+  nat_gateway_id            = each.value.target.type == "nat_gateway_id" ? each.value.target.value : null
+  vpc_peering_connection_id = each.value.target.type == "vpc_peering_connection_id" ? each.value.target.value : null
+  network_interface_id      = each.value.target.type == "network_interface_id" ? each.value.target.value : null
 }
