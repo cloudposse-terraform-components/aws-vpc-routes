@@ -1,24 +1,24 @@
 ---
 tags:
-  - component/vpc-routes
-  - layer/network
-  - provider/aws
+  - terraform
+  - terraform-modules
+  - aws
+  - components
+  - terraform-components
+  - root
+  - geodesic
+  - reference-implementation
+  - reference-architecture
 ---
 
 # Component: `vpc-routes`
 
-This component is responsible for provisioning routes in VPC route tables. It's commonly used to configure routing between VPCs through Transit Gateways.
-
+This component provisions routes in AWS VPC route tables.
+It is commonly used to configure routing between VPCs via Transit Gateways and
+to manage multiple route tables with similar route configurations on a regional basis.
 ## Usage
 
 **Stack Level**: Regional
-
-This component is deployed to each region where VPC routing needs to be configured. It's particularly useful for:
-- Configuring routes between VPCs through Transit Gateways
-- Managing multiple route tables with similar route configurations
-- Separating route configurations for better maintainability and reduced blast radius
-
-### Basic Example
 
 Here's a simple example using physical IDs:
 
@@ -108,30 +108,11 @@ components:
               value: !terraform.output tgw/hub transit_gateway_id
 ```
 
-### Common Use Cases
-
-1. **Transit Gateway Routing**: Configure routes to direct traffic through Transit Gateways for inter-VPC communication
-2. **Environment Connectivity**: Set up routes between different environments (dev, staging, prod)
-3. **Shared Services Access**: Enable access to shared services in transit or core accounts
-
-## Best Practices
-
-1. **Route Organization**: Split routes into logical components (e.g., by environment or purpose) to:
-   - Improve maintainability
-   - Reduce deployment time
-   - Minimize blast radius of changes
-
-2. **Naming Convention**: Use clear naming for route components, for example:
-   ```
-   vpc/routes/private/transit  # Routes to transit network
-   vpc/routes/private/dev      # Routes to dev environment
-   vpc/routes/private/prod     # Routes to prod environment
-   ```
-
-3. **Documentation**: Always document the purpose of route configurations in component metadata or comments
-
 <!-- prettier-ignore-start -->
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- prettier-ignore-end -->
+
+
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -189,13 +170,25 @@ components:
 | Name | Description |
 |------|-------------|
 | <a name="output_mock"></a> [mock](#output\_mock) | Mock output example for the Cloud Posse Terraform component template |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-<!-- prettier-ignore-end -->
+<!-- markdownlint-restore -->
+
+
 
 ## References
 
-- [AWS VPC Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html)
-- [Transit Gateway Route Tables](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html)
-- [cloudposse/terraform-aws-components](TODO) - Cloud Posse's upstream component
 
-[<img src="https://cloudposse.com/logo-300x69.svg" height="32" align="right"/>](https://cpco.io/component)
+- [AWS VPC Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) - 
+
+- [Transit Gateway Route Tables](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html) - 
+
+- [cloudposse-terraform-components](https://github.com/orgs/cloudposse-terraform-components/repositories) - Cloud Posse's upstream component
+
+- [Cloud Posse Documentation](https://docs.cloudposse.com) - Complete documentation for the Cloud Posse solution
+
+- [Reference Architectures](https://cloudposse.com/) - Launch effortlessly with our turnkey reference architectures, built either by your team or ours.
+
+
+
+
+[<img src="https://cloudposse.com/logo-300x69.svg" height="32" align="right"/>](https://cpco.io/homepage?utm_source=github&utm_medium=readme&utm_campaign=cloudposse-terraform-components/aws-vpc-routes&utm_content=)
+
