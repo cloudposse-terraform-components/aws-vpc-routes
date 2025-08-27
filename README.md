@@ -215,7 +215,7 @@ components:
 
 | Name | Description |
 |------|-------------|
-| <a name="output_mock"></a> [mock](#output\_mock) | Mock output example for the Cloud Posse Terraform component template |
+| <a name="output_aws_routes"></a> [aws\_routes](#output\_aws\_routes) | VPC routes |
 <!-- markdownlint-restore -->
 
 
